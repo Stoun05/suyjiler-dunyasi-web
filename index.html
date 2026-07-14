@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="tk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Süýjiler dünýäsi üçin demo onlaýn katalog">
+  <title>Süýjiler dünýäsi — Demo katalog</title>
+  <style>
+    :root{--red:#c92838;--dark:#25161a;--cream:#fff8ee;--paper:#fff;--muted:#78686c;--line:#eadfda;--shadow:0 18px 45px rgba(74,35,41,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--dark);background:var(--cream)}
+    button,input,select{font:inherit}button,a{transition:.2s ease}a{text-decoration:none;color:inherit}.container{width:min(1160px,calc(100% - 36px));margin:auto}
+    .top{background:var(--dark);color:#fff;font-size:13px}.top .container{display:flex;justify-content:space-between;padding:10px 0}.top a{color:#ffd9a9}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,248,238,.94);backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;gap:28px}.brand{display:flex;align-items:center;gap:11px;margin-right:auto}.logo{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,var(--red),#f26762);box-shadow:0 8px 22px rgba(201,40,56,.25);font-size:25px}.brand b{display:block;font-size:20px}.brand small{color:var(--muted)}
+    .links{display:flex;gap:25px;font-weight:700;font-size:14px}.links a:hover{color:var(--red)}.cartBtn,.primary{border:0;background:var(--red);color:#fff;border-radius:14px;padding:12px 17px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(201,40,56,.22)}.cartBtn:hover,.primary:hover{transform:translateY(-2px)}.cartBtn span{background:#fff;color:var(--red);border-radius:999px;padding:2px 7px;margin-left:6px}
+    .hero{padding:72px 0 52px;overflow:hidden}.heroGrid{display:grid;grid-template-columns:1.06fr .94fr;gap:55px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--red);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}.eyebrow:before{content:"";width:28px;height:2px;background:var(--red)}h1{font-size:clamp(46px,6vw,78px);line-height:.98;letter-spacing:-.055em;margin:18px 0 23px}h1 em{color:var(--red);font-style:normal}.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:650px}.actions{display:flex;gap:12px;margin:30px 0}.secondary{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 17px;font-weight:800;cursor:pointer}.secondary:hover{border-color:var(--red);color:var(--red)}
+    .stats{display:flex;gap:35px;margin-top:35px}.stats b{display:block;font-size:21px}.stats span{color:var(--muted);font-size:13px}
+    .visual{min-height:470px;position:relative;border-radius:42px;background:radial-gradient(circle at 30% 20%,#fff5c6 0 14%,transparent 15%),linear-gradient(145deg,#fbd6c5,#f6a8a6);box-shadow:var(--shadow);display:grid;place-items:center;isolation:isolate}.visual:before,.visual:after{content:"";position:absolute;border-radius:999px;filter:blur(1px);z-index:-1}.visual:before{width:210px;height:210px;background:#fff3d8;left:28px;bottom:25px}.visual:after{width:155px;height:155px;background:#d84a57;right:25px;top:32px}.candy{font-size:170px;filter:drop-shadow(0 28px 20px rgba(78,31,36,.18));transform:rotate(-8deg)}.float{position:absolute;background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.8);box-shadow:0 12px 28px rgba(73,34,39,.14);padding:13px 16px;border-radius:18px;font-weight:800}.f1{left:-24px;top:55px}.f2{right:-18px;bottom:55px}
+    section{padding:72px 0}.sectionHead{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:28px}.sectionHead h2{font-size:clamp(34px,4vw,52px);letter-spacing:-.04em;margin:10px 0 0}.sectionHead p{max-width:480px;color:var(--muted);line-height:1.6}
+    .categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{border:1px solid var(--line);background:#fff;border-radius:20px;padding:20px 12px;text-align:center;cursor:pointer;color:var(--dark)}.cat i{font-style:normal;font-size:29px;display:block;margin-bottom:9px}.cat b{font-size:14px}.cat:hover,.cat.active{border-color:var(--red);color:var(--red);transform:translateY(-3px);box-shadow:0 12px 28px rgba(74,35,41,.09)}
+    .catalog{background:#fff}.tools{display:flex;gap:10px}.tools input,.tools select{border:1px solid var(--line);border-radius:13px;padding:12px 14px;background:#fff;outline:none}.tools input:focus,.tools select:focus{border-color:var(--red)}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:24px;background:#fff;padding:13px;position:relative;box-shadow:0 10px 28px rgba(74,35,41,.06)}.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.pic{height:185px;border-radius:17px;background:linear-gradient(145deg,#fff7e7,#f8d9cc);display:grid;place-items:center;font-size:83px}.tag{position:absolute;top:23px;left:23px;background:var(--red);color:#fff;font-size:11px;font-weight:900;border-radius:999px;padding:6px 9px}.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:14px 2px 8px}.card h3{font-size:17px;line-height:1.35;margin:0 2px 15px;min-height:46px}.bottom{display:flex;justify-content:space-between;align-items:center}.price b{display:block;font-size:20px}.price small{color:var(--muted)}.add{width:42px;height:42px;border-radius:13px;border:0;background:var(--dark);color:#fff;font-size:23px;cursor:pointer}.add:hover{background:var(--red)}.empty{display:none;text-align:center;padding:45px;color:var(--muted)}
+    .promoWrap{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.promo{border-radius:30px;padding:35px;min-height:285px;position:relative;overflow:hidden}.promo.dark{background:var(--dark);color:#fff}.promo.light{background:#f5d6c8}.promo h3{font-size:34px;max-width:520px;margin:14px 0}.promo p{line-height:1.65;max-width:520px;color:#d8c7cb}.promo.light p{color:#6c565b}.promo .big{position:absolute;right:25px;bottom:-10px;font-size:115px;transform:rotate(10deg)}
+    footer{background:var(--dark);color:#fff;padding:45px 0}.foot{display:flex;justify-content:space-between;align-items:center;gap:30px}.foot p{color:#bcaeb1}.social{display:flex;gap:12px}.social a{padding:10px 13px;border:1px solid #554247;border-radius:12px}.social a:hover{border-color:#fff}
+    .overlay{position:fixed;inset:0;background:rgba(24,12,15,.52);opacity:0;pointer-events:none;z-index:40}.overlay.open{opacity:1;pointer-events:auto}.drawer{position:fixed;right:0;top:0;height:100%;width:min(430px,100%);background:#fff;z-index:50;transform:translateX(100%);padding:25px;display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(0,0,0,.15)}.drawer.open{transform:translateX(0)}.drawerHead{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#f4ece8;width:39px;height:39px;border-radius:12px;font-size:22px;cursor:pointer}.cartItems{display:grid;gap:12px;margin:20px 0;overflow:auto}.cartItem{display:grid;grid-template-columns:55px 1fr 35px;gap:10px;align-items:center;border:1px solid var(--line);padding:10px;border-radius:16px}.cartItem .mini{height:55px;border-radius:12px;background:#fff2e5;display:grid;place-items:center;font-size:28px}.cartItem small{display:block;color:var(--muted);margin-top:4px}.cartItem button{border:0;background:none;font-size:20px;cursor:pointer}.summary{margin-top:auto;border-top:1px solid var(--line);padding-top:18px}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:900;margin-bottom:15px}.orderText{white-space:pre-wrap;background:#f8f2ef;border-radius:15px;padding:14px;font-size:13px;line-height:1.5;margin-top:12px;display:none}.orderText.show{display:block}
+    .toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,80px);background:var(--dark);color:#fff;padding:12px 18px;border-radius:13px;z-index:70;opacity:0}.toast.show{transform:translate(-50%,0);opacity:1}
+    @media(max-width:900px){.links{display:none}.heroGrid{grid-template-columns:1fr}.visual{min-height:390px}.categories{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.promoWrap{grid-template-columns:1fr}.sectionHead{display:block}.tools{margin-top:20px}.foot{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){.container{width:min(100% - 24px,1160px)}.top .container{font-size:11px}.cartBtn{padding:10px}.cartBtn strong{display:none}.hero{padding-top:45px}.stats{gap:18px}.visual{min-height:315px}.candy{font-size:120px}.float{font-size:12px}.f1{left:7px}.f2{right:7px}.categories{grid-template-columns:repeat(2,1fr)}.tools{display:grid}.grid{grid-template-columns:1fr}.pic{height:215px}.promo{padding:27px}.promo h3{font-size:28px}.promo .big{font-size:85px}.social{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+  <div class="top"><div class="container"><span>🍬 Demo katalog — maglumatlar görkezme maksatly</span><a href="#catalog">Katalogy gör →</a></div></div>
+  <header><nav class="container">
+    <a class="brand" href="#top"><span class="logo">🍭</span><span><b>Süýjiler dünýäsi</b><small>Onlaýn katalog</small></span></a>
+    <div class="links"><a href="#catalog">Katalog</a><a href="#offers">Aksiýalar</a><a href="#about">Biz barada</a></div>
+    <button class="cartBtn" id="openCart"><strong>🛍 Sebet</strong><span id="count">0</span></button>
+  </nav></header>
+
+  <main id="top">
+    <div class="hero"><div class="container heroGrid">
+      <div><span class="eyebrow">Aşgabatda süýji tagamlar</span><h1>Her gün üçin <em>kiçi şatlyk</em></h1><p class="lead">Şokoladlar, süýjüler, kökeler, wafliler, çaýlar we sowgat gutulary — müşderiler üçin bir tertipli katalogda.</p>
+        <div class="actions"><a class="primary" href="#catalog">Katalogy görmek</a><button class="secondary" id="heroCart">Sargyt etmek</button></div>
+        <div class="stats"><div><b>100+</b><span>önüm görnüşi</span></div><div><b>Her hepde</b><span>täze assortiment</span></div><div><b>Mobil</b><span>amatly katalog</span></div></div>
+      </div>
+      <div class="visual"><div class="candy">🍫</div><div class="float f1">⭐ Hepdäniň saýlamasy</div><div class="float f2">🎁 Sowgat gutulary</div></div>
+    </div></div>
+
+    <section><div class="container"><div class="sectionHead"><div><span class="eyebrow">Kategoriýalar</span><h2>Tagamyňyzy saýlaň</h2></div><p>Önümleri kategoriýa boýunça tapyň we sebede goşuň.</p></div>
+      <div class="categories" id="categories">
+        <button class="cat active" data-cat="all"><i>✨</i><b>Hemmesi</b></button><button class="cat" data-cat="candy"><i>🍬</i><b>Süýjüler</b></button><button class="cat" data-cat="chocolate"><i>🍫</i><b>Şokolad</b></button><button class="cat" data-cat="cookie"><i>🍪</i><b>Köke & wafli</b></button><button class="cat" data-cat="tea"><i>🫖</i><b>Çaý</b></button><button class="cat" data-cat="gift"><i>🎁</i><b>Sowgat</b></button>
+      </div>
+    </div></section>
+
+    <section class="catalog" id="catalog"><div class="container"><div class="sectionHead"><div><span class="eyebrow">Demo önümler</span><h2>Saýlanan önümler</h2></div><div class="tools"><input id="search" placeholder="Önüm gözle..."><select id="sort"><option value="default">Meşhurlygy boýunça</option><option value="low">Arzan bahadan</option><option value="high">Gymmat bahadan</option></select></div></div><div class="grid" id="grid"></div><div class="empty" id="empty">🔎 Önüm tapylmady</div></div></section>
+
+    <section id="offers"><div class="container promoWrap"><article class="promo dark"><span class="eyebrow">Aksiýa</span><h3>Öz sowgat gutyňy düz</h3><p>Býujeti we isleýän önümleriňizi aýdyň — size laýyk guty taýýarlanylýar.</p><button class="primary" id="promoCart">Saýlap başla</button><span class="big">🎁</span></article><article class="promo light"><span class="eyebrow">Täze hyzmat</span><h3>Bir düwme bilen sargyt</h3><p>Sebede goşulan önümlerden taýýar sargyt teksti döredilýär.</p><span class="big">🛍</span></article></div></section>
+
+    <section id="about"><div class="container"><div class="sectionHead"><div><span class="eyebrow">Biz barada</span><h2>Sosial mediadan sargyda çenli</h2></div><p>Bu demo “Süýjiler dünýäsi” üçin onlaýn katalog ideýasyny görkezýär. Hakyky logo, önümler, bahalar, telefon we salgy maglumatlary müşderi bilen ylalaşylandan soň ýerleşdiriler.</p></div></div></section>
+  </main>
+
+  <footer><div class="container foot"><div><b>Süýjiler dünýäsi</b><p>Professional onlaýn katalogyň demo wersiýasy.</p></div><div class="social"><a href="https://www.tiktok.com/@suyjiler.tm" target="_blank" rel="noreferrer">TikTok</a><a href="https://www.instagram.com/suyjiler.tm/" target="_blank" rel="noreferrer">Instagram</a></div></div></footer>
+
+  <div class="overlay" id="overlay"></div><aside class="drawer" id="drawer" aria-hidden="true"><div class="drawerHead"><h2>Sebet</h2><button class="close" id="close">×</button></div><div class="cartItems" id="cartItems"></div><p id="emptyCart">Sebet häzir boş.</p><div class="summary" id="summary"><div class="total"><span>Jemi</span><span id="total">0 TMT</span></div><button class="primary" id="makeOrder" style="width:100%">Sargyt tekstini taýýarla</button><div class="orderText" id="orderText"></div></div></aside><div class="toast" id="toast">✓ Sebede goşuldy</div>
+
+  <script>
+    const products=[
+      {id:1,name:'Karamelli şokolad süýjüsi',cat:'candy',emoji:'🍬',weight:'250 g',price:48,tag:'Meşhur'},
+      {id:2,name:'Süýtli şokolad Classic',cat:'chocolate',emoji:'🍫',weight:'100 g',price:36,tag:'Täze'},
+      {id:3,name:'Wanilli wafli Premium',cat:'cookie',emoji:'🧇',weight:'180 g',price:29,tag:'-10%'},
+      {id:4,name:'Miwe tagamly marmelad',cat:'candy',emoji:'🍭',weight:'300 g',price:42,tag:'Täze'},
+      {id:5,name:'Gara çaý Royal Blend',cat:'tea',emoji:'🫖',weight:'100 g',price:55,tag:'Top'},
+      {id:6,name:'Şokoladly köke Selection',cat:'cookie',emoji:'🍪',weight:'240 g',price:39,tag:'Meşhur'},
+      {id:7,name:'Sowgat gutusy Mini',cat:'gift',emoji:'🎁',weight:'8 önüm',price:120,tag:'Sowgat'},
+      {id:8,name:'Ajy şokolad 72%',cat:'chocolate',emoji:'🍫',weight:'90 g',price:44,tag:'Premium'}
+    ];
+    let cat='all',query='',sort='default';const cart=[];
+    const $=s=>document.querySelector(s),grid=$('#grid'),count=$('#count'),drawer=$('#drawer'),overlay=$('#overlay'),cartItems=$('#cartItems'),emptyCart=$('#emptyCart'),summary=$('#summary'),total=$('#total'),orderText=$('#orderText');
+    function visible(){let list=products.filter(p=>(cat==='all'||p.cat===cat)&&p.name.toLowerCase().includes(query.toLowerCase()));if(sort==='low')list.sort((a,b)=>a.price-b.price);if(sort==='high')list.sort((a,b)=>b.price-a.price);return list}
+    function render(){const list=visible();grid.innerHTML=list.map(p=>`<article class="card"><span class="tag">${p.tag}</span><div class="pic">${p.emoji}</div><div class="meta"><span>Demo önüm</span><span>${p.weight}</span></div><h3>${p.name}</h3><div class="bottom"><div class="price"><b>${p.price} TMT</b><small>demo baha</small></div><button class="add" data-add="${p.id}">+</button></div></article>`).join('');$('#empty').style.display=list.length?'none':'block';document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>add(+b.dataset.add))}
+    function add(id){const found=cart.find(x=>x.id===id);found?found.qty++:cart.push({...products.find(p=>p.id===id),qty:1});renderCart();const t=$('#toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1200)}
+    function remove(id){const i=cart.findIndex(x=>x.id===id);if(i>-1)cart.splice(i,1);renderCart()}
+    function renderCart(){const qty=cart.reduce((s,x)=>s+x.qty,0),sum=cart.reduce((s,x)=>s+x.qty*x.price,0);count.textContent=qty;total.textContent=sum+' TMT';cartItems.innerHTML=cart.map(x=>`<div class="cartItem"><div class="mini">${x.emoji}</div><div><b>${x.name}</b><small>${x.qty} × ${x.price} TMT</small></div><button data-remove="${x.id}">×</button></div>`).join('');emptyCart.style.display=cart.length?'none':'block';summary.style.display=cart.length?'block':'none';orderText.classList.remove('show');document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>remove(+b.dataset.remove))}
+    function openCart(){drawer.classList.add('open');overlay.classList.add('open');drawer.setAttribute('aria-hidden','false')}
+    function closeCart(){drawer.classList.remove('open');overlay.classList.remove('open');drawer.setAttribute('aria-hidden','true')}
+    document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-cat]').forEach(x=>x.classList.remove('active'));b.classList.add('active');cat=b.dataset.cat;render();$('#catalog').scrollIntoView()});
+    $('#search').oninput=e=>{query=e.target.value;render()};$('#sort').onchange=e=>{sort=e.target.value;render()};$('#openCart').onclick=openCart;$('#heroCart').onclick=openCart;$('#promoCart').onclick=openCart;$('#close').onclick=closeCart;overlay.onclick=closeCart;
+    $('#makeOrder').onclick=()=>{const lines=cart.map((x,i)=>`${i+1}. ${x.name} — ${x.qty} sany × ${x.price} TMT`);orderText.textContent=`Salam! Men şu önümleri sargyt etmek isleýärin:\n\n${lines.join('\n')}\n\nJemi: ${cart.reduce((s,x)=>s+x.qty*x.price,0)} TMT\n\nAdym: ____\nTelefon: ____`;orderText.classList.add('show')};
+    render();renderCart();
+  </script>
+</body>
+</html>
